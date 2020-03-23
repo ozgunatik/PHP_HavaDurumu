@@ -5,7 +5,8 @@ Bağlan Fonksiyonumuz
 
 PHP ile Hava Durumunu Çekme | KodAdasi.COM
 
-Bağlan Fonksiyonumuz
+1. Adım: Baglan() Fonksiyonumuz
+Bu fonksiyonumuz bir web sitesine bağlanarak verileri çekmemize yardımcı olmaktadır.
 
 function Baglan($url)
 {
@@ -16,9 +17,10 @@ function Baglan($url)
 	$cikti = curl_exec($curl);
 	curl_close($curl);
 	return $cikti;
-}
+}Kodu Kopyala
+2. Adım: İl Kodu
 Verileri alacağımız web sitesine bağlanırken kullanacağımız bir şehir kodu vardır. Bu şehir kodlarına buraya tıklayarak ulaşabilirsiniz.
-https://weather.codes/turkey/
+
 Ankara: TUXX0002
 İstanbul: TUXX0014
 İzmir: TUXX0015
@@ -26,7 +28,8 @@ Bursa: TUXX0039
 Eskişehir: TUXX0040
 ...
 Kod yapımızda ise bir $il değişkeni oluşturup kodu tanımlamalıyız;
-$il = "TUXX0038";
+
+$il = "TUXX0014";Kodu Kopyala
 3. Adım: Verileri Çekmek
 Verileri temel halde çekmek için bu kodu kullanacağız;
 
