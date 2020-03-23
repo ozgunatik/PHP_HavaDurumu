@@ -2,7 +2,7 @@
 PHP ile Hava Durumunu Projemize Eklemek 
 
 Bağlan Fonksiyonumuz
-
+<?php
 function Baglan($url)
 {
 	$curl = curl_init();	
@@ -13,4 +13,4 @@ function Baglan($url)
 	curl_close($curl);
 	return $cikti;
 }
-
+?>
