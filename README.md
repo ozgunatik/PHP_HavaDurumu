@@ -14,10 +14,16 @@ function Baglan($url)
 	return $cikti;
 }
 ```
+<<<<<<< HEAD
 
 #### 2.Adım İl Kodları
 Verileri alacağımız web sitesine bağlanırken kullanacağımız bir şehir kodu vardır. Bu şehir kodlarına  [buraya tıklayarak ](https://weather.codes/turkey/) ulaşabilirsiniz.
 
+=======
+
+#### 2.Adım İl Kodları
+Verileri alacağımız web sitesine bağlanırken kullanacağımız bir şehir kodu vardır. Bu şehir kodlarına  [buraya tıklayarak ](https://weather.codes/turkey/) ulaşabilirsiniz.
+>>>>>>> 159d9db925eb4f3d9ba40decdad02014632fa8be
 ```sh
 Ankara: TUXX0002
 İstanbul: TUXX0014
