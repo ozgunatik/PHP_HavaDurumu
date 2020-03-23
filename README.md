@@ -17,10 +17,8 @@ function Baglan($url)
 	curl_close($curl);
 	return $cikti;
 }
-
 Verileri alacağımız web sitesine bağlanırken kullanacağımız bir şehir kodu vardır. Bu şehir kodlarına buraya tıklayarak ulaşabilirsiniz.
 https://weather.codes/turkey/
-
 Ankara: TUXX0002
 İstanbul: TUXX0014
 İzmir: TUXX0015
@@ -28,9 +26,7 @@ Bursa: TUXX0039
 Eskişehir: TUXX0040
 ...
 Kod yapımızda ise bir $il değişkeni oluşturup kodu tanımlamalıyız;
-
 $il = "TUXX0038";
-
 3. Adım: Verileri Çekmek
 Verileri temel halde çekmek için bu kodu kullanacağız;
 
