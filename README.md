@@ -1,13 +1,8 @@
-# PHP_HavaDurumu
-PHP ile Hava Durumunu Projemize Eklemek 
+# PHP Hava Durumu 
 
-Bağlan Fonksiyonumuz
+#### 1.Adım Bağlan Fonksiyonu
 
-PHP ile Hava Durumunu Çekme | KodAdasi.COM
-
-1. Adım: Baglan() Fonksiyonumuz
-Bu fonksiyonumuz bir web sitesine bağlanarak verileri çekmemize yardımcı olmaktadır.
-
+```sh
 function Baglan($url)
 {
 	$curl = curl_init();
@@ -17,33 +12,38 @@ function Baglan($url)
 	$cikti = curl_exec($curl);
 	curl_close($curl);
 	return $cikti;
-}Kodu Kopyala
-2. Adım: İl Kodu
-Verileri alacağımız web sitesine bağlanırken kullanacağımız bir şehir kodu vardır. Bu şehir kodlarına buraya tıklayarak ulaşabilirsiniz.
+}
+```
 
+#### 2.Adım İl Kodları
+Verileri alacağımız web sitesine bağlanırken kullanacağımız bir şehir kodu vardır. Bu şehir kodlarına  [buraya tıklayarak ](https://weather.codes/turkey/) ulaşabilirsiniz.
+```sh
 Ankara: TUXX0002
 İstanbul: TUXX0014
 İzmir: TUXX0015
 Bursa: TUXX0039
 Eskişehir: TUXX0040
-...
-Kod yapımızda ise bir $il değişkeni oluşturup kodu tanımlamalıyız;
+```
 
-$il = "TUXX0014";Kodu Kopyala
-3. Adım: Verileri Çekmek
-Verileri temel halde çekmek için bu kodu kullanacağız;
+#### 3.Adım Verileri Çekmek
+Çekmek istediğiniz diğer verileri Copy outerHtml ile çekebilirsiniz. Bunun için küçük bir araştırma yapmanız yararınıza olacaktır.
 
+```sh
+$il = "TUXX0014"; /*Bandirma*/
 $baglan = Baglan("https://weather.com/tr-TR/kisisel/bugun/l/".$il.":1:TU");
 preg_match_all('#<p class="today_nowcard-timestamp">(.*?)</p>#si', $baglan, $saat);
 preg_match_all('#<div class="today_nowcard-temp">(.*?)</div>#si', $baglan, $bugun);
 preg_match_all('#<div class="today_nowcard-phrase">(.*?)</div>#si', $baglan, $durum);
-preg_match_all('#<span class="deg-feels" className="deg-feels">(.*?)</span>#si', $baglan, $hissedilen);Kodu Kopyala
-4. Adım: Verileri İşlemek
-Gelen verileri doğru değişkenlere ve doğru halleri ile aktarmak için kullanacağız;
-
+preg_match_all('#<span class="deg-feels" className="deg-feels">(.*?)</span>#si', $baglan, $hissedilen);
+```
+#### 4.Adım Verileri İşlemek 
+```sh
 $saat = explode(":", strip_tags($saat[0][0]));
 $saat = substr($saat[0], -2).":".substr($saat[1], 0, 2);
 $derece = intval(strip_tags($bugun[0][0]))."°";
 $durum = strip_tags($durum[0][0]);
 $hissedilen = intval(strip_tags($hissedilen[0][0]))."°";
+```
+Verileri çektikten sonra göstermek istediğiniz yerde verilerinizi listeleyebilirsiniz. Şehirleri arrayList oluşturup istenilen şehirleride sıralabilirsiniz.
+
 
